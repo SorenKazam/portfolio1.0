@@ -1,0 +1,373 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-4.1/InterVariable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.5s ease;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "PlayfairDisplay", serif;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+q {
+  font-style: italic;
+  font-family: "PlayfairDisplay", serif;
+}
+
+.alert-box {
+  background-color: #f8d7da;
+  border: 1px solid #f4c5c9;
+  color: #66232b;
+  border-radius: 15px;
+  padding: 10px;
+  width: 100%;
+}
+
+.card {
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);
+  padding: 10px;
+}
+
+.card:hover {
+  transform: rotate(-10deg);
+}
+
+.repos-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5px 20px;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+.hidden {
+  display: none !important;
+}
+
+nav.navbar,
+nav.links {
+  background-color: #171616;
+  padding: 20px;
+  border-radius: 50px;
+  margin: 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+nav.navbar > button.toggle-navbar-btn {
+  border: 2px solid #171616;
+  background-color: #171616;
+  text-decoration: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+nav.navbar > button.toggle-navbar-btn:hover {
+  border: 2px solid white;
+}
+
+nav.navbar > div.nav-items {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+nav.navbar > div.nav-items > a.nav-item,
+nav.links > a.nav-item {
+  text-decoration: none;
+  border-radius: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+nav.navbar > div.nav-items > a.nav-item:hover,
+nav.links > a.nav-item:hover {
+  background-color: white;
+  color: #171616;
+  transform: scale(1.05);
+}
+
+nav.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  flex-wrap: wrap;
+}
+
+section > div.container {
+  display: flex;
+  gap: 20px;
+}
+
+section.home > div.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.home > div.container > div.info {
+  text-align: center;
+}
+
+section.home > div.container > img {
+  width: 100%;
+  max-width: 500px;
+}
+
+section.home > div.container > img:active {
+  animation: scaleAndRotate 0.3s ease-in-out forwards;
+}
+
+section.about > div.container {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 10px 0;
+}
+
+section > .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+section.home .container {
+  flex-direction: column;
+  text-align: center;
+}
+
+section.about .about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.about-me,
+.tech-stack {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+div.about-content {
+  max-width: 100%;
+}
+
+.about-me p {
+  text-align: justify;
+}
+
+.tech-carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: thin; /* Para Firefox */
+}
+
+.tech-carousel img {
+  height: 60px; /* Ajusta conforme o design */
+  flex-shrink: 0;
+}
+
+.tech-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tech-carousel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.tech-carousel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes scaleAndRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+}
+
+div.tech-carousel > img:hover {
+  animation: scaleAndRotate 0.3s ease-in-out forwards;
+}
+
+@keyframes barrelRoll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.doBarrelRoll {
+  animation: barrelRoll 10s linear infinite; /* 10s para uma rotação suave */
+}
+
+img.github-readme-stats {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid rgb(110, 110, 110);
+  margin: auto;
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* GITHUB REPO DESIGN */
+
+/* 
+
+<div class="githubRepoList">
+            <div class="repoBox">
+              <section class="basicInfo">
+                <h3><a href="#">Repo name</a></h3>
+                <p>
+                  Repo description Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Id ipsa voluptas, ea, unde quis quos
+                  perferendis odit corrupti exercitationem nam iusto asperiores!
+                  Aliquid earum aut non dolorem eveniet, beatae nemo.
+                </p>
+              </section>
+              <section class="moreInfo">
+                <span>Javascript</span>
+                <span>⭐ 2</span>
+                <span><a href="#">Github pages</a></span>
+              </section>
+            </div>
+          </div>
+
+*/
+
+div.githubRepoList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+div.githubRepoList > div.repoBox {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+div.githubRepoList > div.repoBox:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0);
+  animation: scaleAndRotate 0.3s ease-in-out forwards;
+}
+
+div.githubRepoList > div.repoBox > section.basicInfo {
+  text-align: start;
+}
+
+/* REMOVE THIS LINE IF IT IS REMOVING TOO MUCH INFORMATION! */
+div.githubRepoList > div.repoBox > section.basicInfo > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+div.githubRepoList > div.repoBox > section.basicInfo > h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+div.githubRepoList > div.repoBox > section.moreInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}

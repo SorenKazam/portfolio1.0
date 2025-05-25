@@ -13,9 +13,9 @@ const dayKey = "githubDayVisited";
 const dataKey = "githubData";
 
 /* AUDIOS */
-const popSoundFX = new Audio("../assets/sound/pop.wav");
+const popSoundFX = new Audio("./assets/sound/pop.wav");
 const barrelRollSound = new Audio(
-  "../assets/sound/RickAstley-NeverGonnaGiveYouUp.mp3"
+  "./assets/sound/RickAstley-NeverGonnaGiveYouUp.mp3"
 );
 
 /* EASTER EGG */
@@ -43,8 +43,6 @@ profilePhoto.addEventListener("click", () => {
   popSoundFX.play();
 
   clickCounter = clickCounter + 1;
-
-  console.log(clickCounter);
 
   if (clickCounter >= 100) {
     profilePhoto.src = "./assets/images/rick.gif";
@@ -77,28 +75,7 @@ btnToggleNavbar.addEventListener("click", () => {
   navbarItems.classList.toggle("hidden");
 });
 
-/* GITHUB API COMMENTED BECAUSE IT HAS LIMITS */
-/* fetch(`https://api.github.com/users/${username}/repos`)
-  .then((response) => response.json())
-  .then((repos) => {
-    console.log(repos);
-    repos.forEach((repo) => {
-      const li = document.createElement("li");      li.className = "card";
-      li.innerHTML = `<a href="${repo.html_url}" target="_blank">${
-        repo.name
-      }</a><p>${repo.description || "Sem descrição"}</p> <p>${
-        repo.created_at
-      }</p> <p>${repo.forks_count}</p>`;
-      repoList.appendChild(li);
-    });
-  })
-  .catch((err) => {
-    repoList.innerHTML = `<li>Erro ao carregar repositórios 😢</li>`;
-    console.error(err);
-  }); */
-
 /* GITHUB HEAVY STUFF */
-// Função para carregar dados do GitHub
 function fetchGitHubData() {
   console.error("🛑 A GITHUB REQUEST WAS MADE!");
   fetch(githubAPI)
@@ -212,19 +189,3 @@ if (
   console.log("Buscando novos dados do GitHub...");
   fetchGitHubData();
 }
-
-/* 
-HTML REPO ELEMENTS
-              <section class="moreInfo" id="moreInfo">
-                <span id="repoInfoLanguage">Javascript</span>
-                <span id="repoInfoStars"
-                  >⭐<span id="repoInfoStarsCounter">2</span></span
-                >
-                <a href="#" target="_blank" id="repoInfoPagesURL"
-                  >Github pages</a
-                >
-              </section>
-            </div>
-          </div>
-
-*/

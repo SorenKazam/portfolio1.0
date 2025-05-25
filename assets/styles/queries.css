@@ -1,7 +1,7 @@
 /* SUPER SMALL */
 @media screen and (max-width: 360px) {
   body {
-    background-color: black;
+    background-color: rgb(196, 196, 196);
   }
 
   nav.links {
@@ -19,6 +19,6 @@
 /* DESKTOP */
 @media screen and (min-width: 600px) {
   body {
-    background-color: black;
+    background-color: rgb(153, 153, 153);
   }
 }

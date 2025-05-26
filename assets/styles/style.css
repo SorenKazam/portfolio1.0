@@ -58,7 +58,7 @@ q {
   background-color: #f8d7da;
   border: 1px solid #f4c5c9;
   color: #66232b;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   width: 100%;
 }
@@ -68,7 +68,7 @@ q {
   height: 250px;
   background-color: white;
   color: black;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);
   padding: 10px;
 }
@@ -211,7 +211,7 @@ section.about .about-content {
   flex: 1 1 300px;
   background-color: #fff;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 100%;
 }
@@ -453,14 +453,7 @@ section.contact form > section.actionButtons {
   border-color: #bd2130; /* borda mais escura */
 }
 
-/* 
-
-              <section class="actionButtons">
-                <input type="reset" value="Reset" class="button button-reset" />
-                <button type="submit" class="button button-primary">
-                  Send
-                </button>
-              </section>
-            </form>
-
-*/
+/* FOOTER */
+footer {
+  background-color: #fff;
+}

@@ -18,7 +18,48 @@
 
 /* DESKTOP */
 @media screen and (min-width: 600px) {
-  body {
-    background-color: rgb(153, 153, 153);
+  div.githubRepoList {
+    gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  div.githubRepoList > div.repoBox {
+    width: 45%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .hidden {
+    display: flex !important;
+  }
+
+  .toggle-navbar-btn {
+    display: none !important;
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    margin: 0px !important;
+  }
+
+  section.contact form > section.actionButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .btn-primary,
+  .btn-danger {
+    width: 100%;
   }
 }

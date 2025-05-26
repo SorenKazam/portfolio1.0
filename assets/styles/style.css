@@ -103,7 +103,6 @@ nav.links {
   padding: 20px;
   border-radius: 50px;
   margin: 10px 0px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
 nav.navbar > button.toggle-navbar-btn {
@@ -298,29 +297,6 @@ img.github-readme-stats {
 
 /* GITHUB REPO DESIGN */
 
-/* 
-
-<div class="githubRepoList">
-            <div class="repoBox">
-              <section class="basicInfo">
-                <h3><a href="#">Repo name</a></h3>
-                <p>
-                  Repo description Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Id ipsa voluptas, ea, unde quis quos
-                  perferendis odit corrupti exercitationem nam iusto asperiores!
-                  Aliquid earum aut non dolorem eveniet, beatae nemo.
-                </p>
-              </section>
-              <section class="moreInfo">
-                <span>Javascript</span>
-                <span>⭐ 2</span>
-                <span><a href="#">Github pages</a></span>
-              </section>
-            </div>
-          </div>
-
-*/
-
 div.githubRepoList {
   display: flex;
   flex-direction: column;
@@ -340,8 +316,8 @@ div.githubRepoList > div.repoBox {
 }
 
 div.githubRepoList > div.repoBox:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0);
-  animation: scaleAndRotate 0.3s ease-in-out forwards;
+  box-shadow: 0 4px 10px rgba(53, 53, 53, 0.596);
+  transform: scale(1.05);
 }
 
 div.githubRepoList > div.repoBox > section.basicInfo {
@@ -370,3 +346,121 @@ div.githubRepoList > div.repoBox > section.moreInfo {
   align-items: center;
   justify-content: space-evenly;
 }
+
+/* CONTACT AREA */
+section.contact > div.container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.contact-content {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+section.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+section.contact form > section.actionButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilo geral para os inputs */
+.form-input,
+.form-text-area {
+  width: 100%; /* Garante que os inputs ocupem toda a largura do container */
+  padding: 0.8rem 1rem; /* Espaçamento interno */
+  border: 1px solid #ccc; /* Borda padrão cinza */
+  border-radius: 0.375rem; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  background-color: #fff; /* Cor de fundo branca */
+  color: #333; /* Cor do texto */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para mudanças */
+  box-sizing: border-box; /* Garantir que o padding não altere o tamanho total */
+}
+
+.form-input:focus,
+.form-text-area:focus {
+  outline: none; /* Remove o outline padrão */
+  border-color: #007bff; /* Cor da borda quando o input estiver em foco */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efeito de sombra azul clara */
+}
+
+/* Estilo específico para o input type="text" e input type="email" */
+.form-input {
+  height: 2.5rem; /* Altura confortável para o input */
+}
+
+/* Estilo específico para o textarea */
+.form-text-area {
+  height: 150px; /* Altura maior para o textarea */
+  resize: vertical; /* Permite redimensionar a área de texto verticalmente */
+  min-height: 100px; /* Altura mínima */
+}
+
+/* Botão Primary */
+.btn-primary {
+  background-color: #007bff; /* cor de fundo azul */
+  border: 0px;
+  color: white; /* cor do texto branca */
+  border-radius: 20px; /* borda arredondada */
+  padding: 0.375rem 0.75rem; /* espaçamento interno */
+  font-size: 1rem; /* tamanho da fonte */
+  font-weight: 400; /* peso da fonte */
+  text-align: center; /* texto centralizado */
+  cursor: pointer; /* cursor de ponteiro */
+  display: inline-block; /* exibição em linha */
+  text-decoration: none; /* sem sublinhado */
+  transition: background-color 0.15s ease, border-color 0.15s ease; /* transição suave */
+}
+
+/* Efeito ao passar o mouse no botão Primary */
+.btn-primary:hover {
+  background-color: #0056b3; /* cor de fundo mais escura */
+}
+
+/* Botão Danger */
+.btn-danger {
+  background-color: #dc3545; /* cor de fundo vermelha */
+  border: 0px;
+  color: white; /* cor do texto branca */
+  border-radius: 20px; /* borda arredondada */
+  padding: 0.375rem 0.75rem; /* espaçamento interno */
+  font-size: 1rem; /* tamanho da fonte */
+  font-weight: 400; /* peso da fonte */
+  text-align: center; /* texto centralizado */
+  cursor: pointer; /* cursor de ponteiro */
+  display: inline-block; /* exibição em linha */
+  text-decoration: none; /* sem sublinhado */
+  transition: background-color 0.15s ease, border-color 0.15s ease; /* transição suave */
+}
+
+/* Efeito ao passar o mouse no botão Danger */
+.btn-danger:hover {
+  background-color: #c82333; /* cor de fundo mais escura */
+  border-color: #bd2130; /* borda mais escura */
+}
+
+/* 
+
+              <section class="actionButtons">
+                <input type="reset" value="Reset" class="button button-reset" />
+                <button type="submit" class="button button-primary">
+                  Send
+                </button>
+              </section>
+            </form>
+
+*/

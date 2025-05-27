@@ -2,6 +2,7 @@
 const footerYear = document.querySelector("span#auto-year");
 const repoList = document.getElementById("repos");
 const btnToggleNavbar = document.querySelector("button#toggle-navbar");
+const btnGoTop = document.querySelector("a#goTopBtn");
 const profilePhoto = document.querySelector("img#myPfp");
 const myAge = document.querySelector("span#myAge");
 const todayDay = new Date().getUTCDate();
@@ -189,3 +190,17 @@ if (
   console.log("Buscando novos dados do GitHub...");
   fetchGitHubData();
 }
+
+/* DETECTING IF USER SCROLLS THE PAGE */
+window.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY || window.pageYOffset;
+
+  /* DETECTING IF USER SCROLLS A CERTAIN NUMBER OF PIXELS DOWN */
+  if (scrollPosition > 200) {
+    console.log(`The user scrolled more than 20px!\n${scrollPosition}`);
+
+    btnGoTop.style.display = "block";
+  } else {
+    btnGoTop.style.display = "none";
+  }
+});

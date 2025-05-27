@@ -472,7 +472,7 @@ footer {
   border-radius: 20px 20px 0px 20px;
   background-color: #2a5a91;
   color: white;
-  display: block;
+  display: none;
   z-index: 2;
   text-decoration: none;
   opacity: 0.5;

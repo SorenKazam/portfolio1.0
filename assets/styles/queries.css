@@ -1,5 +1,9 @@
 /* SUPER SMALL */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 300px) {
+  * {
+    width: 100%;
+  }
+
   body {
     background-color: rgb(196, 196, 196);
   }
@@ -17,22 +21,7 @@
 }
 
 /* DESKTOP */
-@media screen and (min-width: 600px) {
-  div.githubRepoList {
-    gap: 30px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  div.githubRepoList > div.repoBox {
-    width: 45%;
-    max-width: 500px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
+@media screen and (min-width: 800px) {
   .hidden {
     display: flex !important;
   }
@@ -61,5 +50,68 @@
   .btn-primary,
   .btn-danger {
     width: 100%;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px 0px;
+    justify-content: center;
+  }
+
+  section.home {
+    background-color: #fff;
+    border-radius: 20px;
+    width: 400px;
+    position: sticky;
+    top: 20px;
+    height: 100%;
+    width: 40%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  section.about {
+    max-width: 600px;
+    width: 40%;
+    max-width: 500px;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  /* APPEAR/DESAPEAR EFFECT */
+  .repoBox {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 20px;
+  }
+
+  .repoBox.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  div.githubRepoList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.githubRepoList > div.repoBox {
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }

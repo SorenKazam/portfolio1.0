@@ -1,3 +1,14 @@
+/* DEGUB */
+let debug = false;
+if (debug == true) {
+  console.log("debug mode");
+  const containers = document.querySelectorAll(".container");
+
+  containers.forEach((container) => {
+    container.style.border = "1px solid red";
+  });
+}
+
 /* GET DOM COMPONENTS */
 const footerYear = document.querySelector("span#auto-year");
 const repoList = document.getElementById("repos");
@@ -48,7 +59,7 @@ profilePhoto.addEventListener("click", () => {
   if (clickCounter >= 100) {
     profilePhoto.src = "./assets/images/rick.gif";
     profilePhoto.classList.add("doBarrelRoll");
-    profilePhoto.style.position = "fixed";
+    profilePhoto.style.position = "absolute";
 
     /* WHEN MUSIC IS OVER */
     barrelRollSound.addEventListener("ended", () => {
@@ -133,7 +144,7 @@ function displayRepos(repos) {
     repoBoxTitleLink.rel = "noopener noreferrer";
     repoBoxTitleLink.className = "repoInfoURL";
     repoBoxTitleLink.id = "repoInfoURL";
-    repoBoxTitleLink.textContent = repo.name;
+    repoBoxTitleLink.textContent = "🔗 " + repo.name;
     repoBoxTitle.appendChild(repoBoxTitleLink);
 
     /* REPO BOX DESCRIPTION */
@@ -153,7 +164,7 @@ function displayRepos(repos) {
     const repoBoxMoreInfoLanguage = document.createElement("span");
     repoBoxMoreInfoLanguage.className = "repoInfoLanguage";
     repoBoxMoreInfoLanguage.id = "repoInfoLanguage";
-    repoBoxMoreInfoLanguage.textContent = repo.language;
+    repoBoxMoreInfoLanguage.textContent = "🛠️ " + repo.language;
     repoBoxMoreInfo.appendChild(repoBoxMoreInfoLanguage);
 
     /* REPO BOX MORE INFO STARS */
@@ -170,7 +181,7 @@ function displayRepos(repos) {
     repoBoxMoreInfoLinkPages.rel = "noopener noreferrer";
     repoBoxMoreInfoLinkPages.className = "repoInfoPagesURL";
     repoBoxMoreInfoLinkPages.id = "repoInfoPagesURL";
-    repoBoxMoreInfoLinkPages.textContent = "Preview";
+    repoBoxMoreInfoLinkPages.textContent = "👁️ Preview";
     repoBoxMoreInfo.appendChild(repoBoxMoreInfoLinkPages);
 
     /* Insert it in the list */
@@ -197,10 +208,69 @@ window.addEventListener("scroll", () => {
 
   /* DETECTING IF USER SCROLLS A CERTAIN NUMBER OF PIXELS DOWN */
   if (scrollPosition > 200) {
-    console.log(`The user scrolled more than 20px!\n${scrollPosition}`);
-
     btnGoTop.style.display = "block";
   } else {
     btnGoTop.style.display = "none";
   }
 });
+
+const repoBoxes = document.querySelectorAll(".repoBox");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal"); // Entra no viewport -> revela
+      } else {
+        entry.target.classList.remove("reveal"); // Sai do viewport -> esconde
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+  }
+);
+
+repoBoxes.forEach((box) => observer.observe(box));
+
+/* FLOATING ICONS */
+const baseIcons = document.querySelectorAll(".floating-icons .icon");
+const floatingContainer = document.querySelector(".floating-icons");
+
+function spawnBubble() {
+  // Escolher aleatoriamente uma das imagens base
+  const randomIcon =
+    baseIcons[Math.floor(Math.random() * baseIcons.length)].cloneNode(true);
+
+  // Gerar posições aleatórias (em porcentagem da tela)
+  const startX = Math.random() * 100 + "vw";
+  const startY = Math.random() * 100 + "vh";
+  const endX = Math.random() * 100 + "vw";
+  const endY = Math.random() * 100 + "vh";
+  const scale = Math.random() * 0.5 + 0.75; // Escala entre 0.75 e 1.25
+  const duration = Math.random() * 15 + 10 + "s"; // Entre 10s e 25s
+
+  // Definir propriedades CSS personalizadas
+  randomIcon.style.setProperty("--start-x", startX);
+  randomIcon.style.setProperty("--start-y", startY);
+  randomIcon.style.setProperty("--end-x", endX);
+  randomIcon.style.setProperty("--end-y", endY);
+  randomIcon.style.setProperty("--scale", scale);
+  randomIcon.style.animationDuration = duration;
+
+  // Adicionar o ícone à tela
+  floatingContainer.appendChild(randomIcon);
+
+  // Remover o ícone após a animação terminar
+  setTimeout(() => {
+    floatingContainer.removeChild(randomIcon);
+  }, parseFloat(duration) * 1000);
+}
+
+// Spawna novas bolhas periodicamente
+setInterval(spawnBubble, 500); // Spawna uma bolha nova a cada 0.5s
+
+// Opcional: Spawna algumas bolhas iniciais já distribuídas
+for (let i = 0; i < 10; i++) {
+  spawnBubble();
+}

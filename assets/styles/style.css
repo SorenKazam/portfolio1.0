@@ -1,12 +1,22 @@
+/* FONTS */
+
+/* FOR BODY TEXT */
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter-4.1/InterVariable.ttf") format("truetype");
 }
 
+/* FOR H1 MAIN TITLE */
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf")
     format("truetype");
+}
+
+/* FOR H2 TO H6 */
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
 }
 
 * {
@@ -27,25 +37,31 @@ body {
   line-height: 1.6;
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "PlayfairDisplay", serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 1rem;
-  color: #222;
+  color: #252525;
 }
 
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
+  font-family: "PlayfairDisplay", serif;
+  color: #252525;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 600;
+}
+
+h1,
+h2 {
+  text-shadow: 3px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 p {
@@ -55,6 +71,15 @@ p {
 q {
   font-style: italic;
   font-family: "PlayfairDisplay", serif;
+}
+
+a {
+  color: #3182da;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .alert-box {
@@ -88,6 +113,13 @@ q {
   padding: 20px;
 }
 
+section.home {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 100%;
+  position: relative;
+}
+
 .container {
   width: 100%;
   max-width: 1000px;
@@ -102,15 +134,15 @@ q {
 
 nav.navbar,
 nav.links {
-  background-color: #171616;
+  background-color: #1d2642;
   padding: 20px;
   border-radius: 50px;
   margin: 10px 0px;
 }
 
 nav.navbar > button.toggle-navbar-btn {
-  border: 2px solid #171616;
-  background-color: #171616;
+  border: 2px solid #1d2642;
+  background-color: #1d2642;
   text-decoration: none;
   border-radius: 20px;
   text-transform: uppercase;
@@ -239,6 +271,7 @@ div.about-content {
 .tech-carousel img {
   height: 60px; /* Ajusta conforme o design */
   flex-shrink: 0;
+  filter: grayscale(100%);
 }
 
 .tech-carousel::-webkit-scrollbar {
@@ -268,6 +301,7 @@ div.about-content {
 
 div.tech-carousel > img:hover {
   animation: scaleAndRotate 0.3s ease-in-out forwards;
+  filter: grayscale(0%);
 }
 
 @keyframes barrelRoll {
@@ -504,4 +538,71 @@ footer {
 
 .skipToContentBtn:focus {
   top: 0; /* Move o botão para a posição visível quando focado */
+}
+
+/* SHINY EFFECT */
+.shiny-title {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #272727; /* Ou a cor base que preferires */
+  background: linear-gradient(
+    90deg,
+    #a8a8a8 0%,
+    #7c7c7c 40%,
+    #5e5e5e 50%,
+    #3d3d3d 60%,
+    #424242 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* FLOTATING BACKGROUND ICONS */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Para não atrapalhar cliques */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(var(--scale));
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y)) scale(var(--scale));
+    opacity: 0;
+  }
 }

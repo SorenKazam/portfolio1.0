@@ -350,6 +350,7 @@ div.githubRepoList > div.repoBox {
   border-radius: 20px;
   padding: 10px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 div.githubRepoList > div.repoBox:hover {

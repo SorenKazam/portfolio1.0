@@ -214,25 +214,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const repoBoxes = document.querySelectorAll(".repoBox");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("reveal"); // Entra no viewport -> revela
-      } else {
-        entry.target.classList.remove("reveal"); // Sai do viewport -> esconde
-      }
-    });
-  },
-  {
-    threshold: 0.1,
-  }
-);
-
-repoBoxes.forEach((box) => observer.observe(box));
-
 /* FLOATING ICONS */
 const baseIcons = document.querySelectorAll(".floating-icons .icon");
 const floatingContainer = document.querySelector(".floating-icons");
